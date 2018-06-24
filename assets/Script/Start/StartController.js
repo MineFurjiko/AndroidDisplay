@@ -93,5 +93,11 @@ cc.Class({
     exitGame() {
         // console.log('退出游戏');
         cc.director.end();
+    },
+
+    onVideoCountInputTextChanged(editbox, customEventData) {
+        if (Number(editbox.string) < 1) {
+            editbox.string = 1;
+        }
     }
 });

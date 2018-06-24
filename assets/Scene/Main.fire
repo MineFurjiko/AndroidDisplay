@@ -742,7 +742,7 @@
     "host": "127.0.0.1",
     "folder": "AndroidDisplay/Video",
     "fileName": "video1.mp4",
-    "loop": true,
+    "videoCount": 2,
     "logger": {
       "__id__": 18
     }

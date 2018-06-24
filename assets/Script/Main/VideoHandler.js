@@ -1,44 +1,47 @@
-// var VideoSpawner = require('VideoSpawner');
-
 cc.Class({
     extends: cc.Component,
 
     properties: {
-        // videoSpawner: VideoSpawner
-    },
-
-
-    start() {
 
     },
 
     playerEventHandler(videoPlayer, eventType, customEventData) {
         switch (eventType) {
             case cc.VideoPlayer.EventType.META_LOADED: {
-                console.log('视频信息加载完成');
+                this.addLog('视频信息加载完成');
 
             } break;
             case cc.VideoPlayer.EventType.READY_TO_PLAY: {
-                console.log('播放准备完成');
+                this.addLog('播放准备完成');
 
                 videoPlayer.play();
             } break;
             case cc.VideoPlayer.EventType.PLAYING: {
-                console.log('播放中');
+                this.addLog('播放中');
+                if (this.videoSpawner) {
+                    this.videoSpawner.switchLoggerActive(false);
+                }
+
             } break;
             case cc.VideoPlayer.EventType.COMPLETED: {
-                console.log('播放完成');
-
-                this.videoSpawner.nextVideo();
-
+                this.addLog('播放完成');
+                if (this.videoSpawner) {
+                    this.videoSpawner.nextVideo();
+                }
             } break;
             default: break;
         }
     },
 
+    addLog(message) {
+        // console.log(message);
+
+        if (this.videoSpawner) {
+            this.videoSpawner.addLog(message);
+        }
+    },
 
     onDestroy() {
-        console.log('Destroy me!');
-
+        this.node.destroy();
     }
 });
