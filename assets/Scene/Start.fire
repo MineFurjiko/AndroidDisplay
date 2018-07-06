@@ -856,7 +856,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "Image",
+    "_name": "Station",
     "_objFlags": 0,
     "_parent": {
       "__id__": 6
@@ -879,7 +879,7 @@
     "_active": true,
     "_components": [],
     "_prefab": null,
-    "_id": "94iBWo12lEWYRXhXifXjhk",
+    "_id": "25UB4pShJBrZoTevBgobuC",
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
@@ -917,7 +917,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "image_label",
+    "_name": "station_label",
     "_objFlags": 0,
     "_parent": {
       "__id__": 20
@@ -931,7 +931,7 @@
       }
     ],
     "_prefab": null,
-    "_id": "abQ61b1jBPP77ICtXq93F9",
+    "_id": "55ucVFCXhBDqbgpLmwFM1m",
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
@@ -948,7 +948,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 122,
+      "width": 125,
       "height": 40
     },
     "_rotationX": 0,
@@ -983,7 +983,7 @@
     "_N$file": null,
     "_isSystemFontUsed": true,
     "_spacingX": 0,
-    "_N$string": "Image:",
+    "_N$string": "Station",
     "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Arial",
@@ -991,7 +991,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "image_folder",
+    "_name": "station_id",
     "_objFlags": 0,
     "_parent": {
       "__id__": 20
@@ -1005,7 +1005,7 @@
       }
     ],
     "_prefab": null,
-    "_id": "2eq3ESbRpK0JFy169LvX7u",
+    "_id": "4ceANzPLFERYbGZ3KLhboO",
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
@@ -1061,7 +1061,7 @@
     },
     "_N$returnType": 0,
     "_N$inputFlag": 5,
-    "_N$inputMode": 4,
+    "_N$inputMode": 3,
     "_N$fontSize": 45,
     "_N$lineHeight": 50,
     "_N$fontColor": {
@@ -1071,7 +1071,7 @@
       "b": 0,
       "a": 255
     },
-    "_N$placeholder": "请输入文件目录",
+    "_N$placeholder": "请输入检测站ID",
     "_N$placeholderFontSize": 45,
     "_N$placeholderFontColor": {
       "__type__": "cc.Color",
@@ -1085,7 +1085,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "image_file",
+    "_name": "station_local_interval",
     "_objFlags": 0,
     "_parent": {
       "__id__": 20
@@ -1099,7 +1099,7 @@
       }
     ],
     "_prefab": null,
-    "_id": "20xCA5Vz9P6YpmE+wDVBPg",
+    "_id": "0dPC1slkJO7oPe0rEz+Xfc",
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
@@ -1155,7 +1155,7 @@
     },
     "_N$returnType": 0,
     "_N$inputFlag": 5,
-    "_N$inputMode": 4,
+    "_N$inputMode": 3,
     "_N$fontSize": 45,
     "_N$lineHeight": 50,
     "_N$fontColor": {
@@ -1165,7 +1165,7 @@
       "b": 0,
       "a": 255
     },
-    "_N$placeholder": "请输入文件名",
+    "_N$placeholder": "请输入本地站点更新间隔",
     "_N$placeholderFontSize": 45,
     "_N$placeholderFontColor": {
       "__type__": "cc.Color",
@@ -1179,7 +1179,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "image_interval",
+    "_name": "station_other_interval",
     "_objFlags": 0,
     "_parent": {
       "__id__": 20
@@ -1193,7 +1193,7 @@
       }
     ],
     "_prefab": null,
-    "_id": "b6g1+iO4xLd43jjhbLa3FR",
+    "_id": "4dPJVJyfpOuZQUAzHw0BEe",
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
@@ -1259,7 +1259,7 @@
       "b": 0,
       "a": 255
     },
-    "_N$placeholder": "请输入更新间隔",
+    "_N$placeholder": "请输入其它站点更新间隔",
     "_N$placeholderFontSize": 45,
     "_N$placeholderFontColor": {
       "__type__": "cc.Color",
@@ -2242,13 +2242,13 @@
     "ipInput": {
       "__id__": 11
     },
-    "imageFolderInput": {
+    "stationIdInput": {
       "__id__": 24
     },
-    "imageFileInput": {
+    "stationLocalIntervalInput": {
       "__id__": 26
     },
-    "imageIntervalInput": {
+    "stationOtherIntervalInput": {
       "__id__": 28
     },
     "videoFolderInput": {

@@ -12,9 +12,12 @@ cc.Class({
             type: cc.EditBox,
             displayName: 'IP Input'
         },
-        imageFolderInput: cc.EditBox,
-        imageFileInput: cc.EditBox,
-        imageIntervalInput: cc.EditBox,
+        // imageFolderInput: cc.EditBox,
+        // imageFileInput: cc.EditBox,
+        // imageIntervalInput: cc.EditBox,
+        stationIdInput: cc.EditBox,
+        stationLocalIntervalInput: cc.EditBox,
+        stationOtherIntervalInput: cc.EditBox,
         videoFolderInput: cc.EditBox,
         videoFileInput: cc.EditBox,
         videoCountInput: cc.EditBox
@@ -24,9 +27,11 @@ cc.Class({
         let host = cc.sys.localStorage.getItem('host');
         let useSSL = cc.sys.localStorage.getItem('useSSL');
         let videoCount = cc.sys.localStorage.getItem('videoCount');
+        let stationId = cc.sys.localStorage.getItem('stationId');
         // console.log(host);
         // console.log(useSSL);
         // console.log(videoCount);
+        // console.log(stationId);
 
         if (host == '' || host == null) {
             this.ipInput.string = D.Host;
@@ -46,9 +51,19 @@ cc.Class({
             this.videoCountInput.string = Number(videoCount);
         }
 
-        this.imageFolderInput.string = D.ImageFolder;
-        this.imageFileInput.string = D.ImageFile;
-        this.imageIntervalInput.string = D.ImageInterval;
+        if (stationId == '' || stationId == null) {
+            this.stationIdInput.string = D.LocalStationId;
+        } else {
+            this.stationIdInput.string = Number(stationId);
+        }
+
+        // this.imageFolderInput.string = D.ImageFolder;
+        // this.imageFileInput.string = D.ImageFile;
+        // this.imageIntervalInput.string = D.ImageInterval;
+
+        this.stationLocalIntervalInput.string = D.LocalUpdateInterval;
+        this.stationOtherIntervalInput.string = D.OtherUpdateInterval;
+
         this.videoFolderInput.string = D.VideoFolder;
         this.videoFileInput.string = D.VideoFile;
     },
@@ -56,9 +71,15 @@ cc.Class({
     getInputIP() {
         let host = this.ipInput.string;
         let useSSL = this.ipSSLToggle.isChecked;
-        let imageFolder = this.imageFolderInput.string;
-        let imageFile = this.imageFileInput.string;
-        let imageInterval = Number(this.imageIntervalInput.string);
+
+        // let imageFolder = this.imageFolderInput.string;
+        // let imageFile = this.imageFileInput.string;
+        // let imageInterval = Number(this.imageIntervalInput.string);
+
+        let stationId = Number(this.stationIdInput.string);
+        let stationLocalInterval = Number(this.stationLocalIntervalInput.string);
+        let stationOtherInterval = Number(this.stationOtherIntervalInput.string);
+
         let videoFolder = this.videoFolderInput.string;
         let videoFile = this.videoFileInput.string;
         let videoCount = Number(this.videoCountInput.string);
@@ -67,12 +88,16 @@ cc.Class({
         cc.sys.localStorage.setItem('host', host);
         cc.sys.localStorage.setItem('useSSL', useSSL);
         cc.sys.localStorage.setItem('videoCount', videoCount);
+        cc.sys.localStorage.setItem('stationId', stationId);
 
         D.Host = host;
         D.UseSSL = useSSL;
-        D.ImageFolder = imageFolder;
-        D.ImageFile = imageFile;
-        D.ImageInterval = imageInterval;
+        // D.ImageFolder = imageFolder;
+        // D.ImageFile = imageFile;
+        // D.ImageInterval = imageInterval;
+        D.LocalStationId = stationId;
+        D.LocalUpdateInterval = stationLocalInterval;
+        D.OtherUpdateInterval = stationOtherInterval;
         D.VideoFolder = videoFolder;
         D.VideoFile = videoFile;
         D.VideoCount = videoCount;
@@ -82,6 +107,9 @@ cc.Class({
         // console.log(D.ImageFolder);
         // console.log(D.ImageFile);
         // console.log(D.ImageInterval);
+        // console.log(D.LocalStationId);
+        // console.log(D.LocalUpdateInterval);
+        // console.log(D.OtherUpdateInterval);
         // console.log(D.VideoFolder);
         // console.log(D.VideoFile);
         // console.log(D.VideoCount);
