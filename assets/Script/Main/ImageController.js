@@ -45,7 +45,7 @@ cc.Class({
             let remoteUrl = this.protocol + this.host + this.folder + this.fileName + '?v=' + cc.rand();
             cc.loader.load(remoteUrl, (err, texture) => {
                 if (err) {
-                    this.unschedule(getImageSchedule);
+                    // this.unschedule(getImageSchedule);
                     return;
                 }
                 // console.log('get image from' + remoteUrl);
