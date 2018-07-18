@@ -13,8 +13,8 @@ cc.Class({
             } break;
             case cc.VideoPlayer.EventType.READY_TO_PLAY: {
                 this.addLog('播放准备完成');
-
                 videoPlayer.play();
+
             } break;
             case cc.VideoPlayer.EventType.PLAYING: {
                 this.addLog('播放中');
@@ -28,6 +28,7 @@ cc.Class({
                 if (this.videoSpawner) {
                     this.videoSpawner.nextVideo();
                 }
+
             } break;
             default: break;
         }

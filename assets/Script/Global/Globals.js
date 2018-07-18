@@ -1,7 +1,7 @@
 window.D = {
     RunFromStart: false,
 
-    Host: '192.168.1.2:8282',
+    Host: '192.168.1.2:80',
     UseSSL: false,
 
     LocalStationId: 0,

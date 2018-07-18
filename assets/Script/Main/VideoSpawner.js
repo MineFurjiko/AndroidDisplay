@@ -4,6 +4,7 @@ cc.Class({
     properties: {
         videoPlayerPrefab: cc.Prefab,
         spawnerNode: cc.Node,
+        remote: false,
         host: {
             default: ''
         },
@@ -48,9 +49,43 @@ cc.Class({
             this.currentVideoPlayer = null;
         }
 
-        let url = this.getAssetUrl();
-        this.creatVideoPlayer(url);
+        if (this.remote) {
+            let url = this.getAssetUrl();
+            this.creatVideoPlayerByUrl(url);
+            this.resetLogger();
+            return;
+        }
+
+        let clip = this.getAssetClip();
+        if (!clip && this.videoCount == 1) {
+            this.switchLoggerActive(true);
+            this.addLog('请检查唯一的视频文件...');
+            return;
+        }
+        while (clip == null) {
+            clip = this.getAssetClip();
+        }
+        this.creatVideoPlayerByClip(clip);
         this.resetLogger();
+    },
+
+    getAssetClip() {
+        let clip = jsb.fileUtils.getWritablePath() + 'video/video' + this.videoIndex + '.mp4';
+
+        //check file
+        if (!jsb.fileUtils.isFileExist(clip)) {
+            clip = null;
+
+            this.switchLoggerActive(true);
+            this.addLog('跳过' + this.videoIndex + '号错误视频...');
+        }
+
+        this.videoIndex++;
+        if (this.videoIndex > this.videoCount) {
+            this.videoIndex = 1;
+        }
+
+        return clip;
     },
 
     getAssetUrl() {
@@ -72,7 +107,7 @@ cc.Class({
         return url;
     },
 
-    creatVideoPlayer(url) {
+    creatVideoPlayerByUrl(url) {
         let viderPlayerObjcet = cc.instantiate(this.videoPlayerPrefab);
         this.spawnerNode.addChild(viderPlayerObjcet);
 
@@ -82,6 +117,20 @@ cc.Class({
         let videoPlayer = viderPlayerObjcet.getComponent(cc.VideoPlayer);
         videoPlayer.resourceType = cc.VideoPlayer.ResourceType.REMOTE;
         videoPlayer.remoteURL = url;
+
+        this.currentVideoPlayer = viderPlayerObjcet;
+    },
+
+    creatVideoPlayerByClip(clip) {
+        let viderPlayerObjcet = cc.instantiate(this.videoPlayerPrefab);
+        this.spawnerNode.addChild(viderPlayerObjcet);
+
+        let videoHandler = viderPlayerObjcet.getComponent('VideoHandler');
+        videoHandler.videoSpawner = this;
+
+        let videoPlayer = viderPlayerObjcet.getComponent(cc.VideoPlayer);
+        videoPlayer.resourceType = cc.VideoPlayer.ResourceType.LOCAL;
+        videoPlayer.clip = clip;
 
         this.currentVideoPlayer = viderPlayerObjcet;
     },

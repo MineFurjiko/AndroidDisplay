@@ -2749,6 +2749,7 @@
     "spawnerNode": {
       "__id__": 71
     },
+    "remote": false,
     "host": "127.0.0.1",
     "folder": "AndroidDisplay/Video",
     "fileName": "video1.mp4",
