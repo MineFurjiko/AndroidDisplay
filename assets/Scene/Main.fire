@@ -2528,7 +2528,7 @@
       "__id__": 11
     },
     "_enabled": true,
-    "host": "192.168.1.2:80",
+    "host": "127.0.0.1",
     "localStationId": 1,
     "localUpdateInterval": 8,
     "otherUpdateInterval": 10,
@@ -2615,7 +2615,7 @@
       }
     ],
     "_tag": -1,
-    "_active": true,
+    "_active": false,
     "_components": [
       {
         "__id__": 74

@@ -8,11 +8,5 @@ window.D = {
     LocalUpdateInterval: 8,
     OtherUpdateInterval: 10,
 
-    ImageFolder: 'AndroidDisplay/Image',
-    ImageFile: 'IMG.jpg',
-    ImageInterval: 8,
-
-    VideoFolder: 'AndroidDisplay/Video',
-    VideoFile: 'video.mp4',
     VideoCount: 1
 };
