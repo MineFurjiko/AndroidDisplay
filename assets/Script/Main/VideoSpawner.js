@@ -11,6 +11,7 @@ cc.Class({
         folder: '',
         fileName: '',
         videoCount: 1,
+        localVideo: [cc.RawAsset],
         logger: cc.Label
     },
 
@@ -66,14 +67,14 @@ cc.Class({
             clip = this.getAssetClip();
         }
         this.creatVideoPlayerByClip(clip);
-        this.resetLogger();
+        // this.resetLogger();
     },
 
     getAssetClip() {
-        let clip = jsb.fileUtils.getWritablePath() + 'video/video' + this.videoIndex + '.mp4';
-
+        let clip = this.localVideo[this.videoIndex - 1];
+        cc.log(clip);
         //check file
-        if (!jsb.fileUtils.isFileExist(clip)) {
+        if (!clip) {
             clip = null;
 
             this.switchLoggerActive(true);

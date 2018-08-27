@@ -2615,7 +2615,7 @@
       }
     ],
     "_tag": -1,
-    "_active": false,
+    "_active": true,
     "_components": [
       {
         "__id__": 74
@@ -2754,6 +2754,23 @@
     "folder": "AndroidDisplay/Video",
     "fileName": "video1.mp4",
     "videoCount": 2,
+    "localVideo": [
+      {
+        "__uuid__": "25d87be0-bd65-4436-8dd5-0356577b5f7b"
+      },
+      {
+        "__uuid__": "5a49cc95-974b-4ebd-b93b-2e15040b710b"
+      },
+      {
+        "__uuid__": "a28fdb43-a2ce-41b0-a866-404209b19547"
+      },
+      {
+        "__uuid__": "0765634e-7bc2-4365-a272-69ac05118db4"
+      },
+      {
+        "__uuid__": "034e4efe-ee26-455d-8847-7648b2d9aa1a"
+      }
+    ],
     "logger": {
       "__id__": 73
     }

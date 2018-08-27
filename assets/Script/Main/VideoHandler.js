@@ -19,7 +19,7 @@ cc.Class({
             case cc.VideoPlayer.EventType.PLAYING: {
                 this.addLog('播放中');
                 if (this.videoSpawner) {
-                    this.videoSpawner.switchLoggerActive(false);
+                    // this.videoSpawner.switchLoggerActive(false);
                 }
 
             } break;
